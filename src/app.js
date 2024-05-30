@@ -1,4 +1,4 @@
-/* eslint-disable */
+* eslint-disable *
 import "bootstrap";
 import "./style.css";
 
@@ -9,15 +9,23 @@ window.onload = function() {
   let pronoun = ["the", "our"];
   let adj = ["great", "big"];
   let noun = ["jogger", "racoon"];
-
+  
   //write your code here
-  function generarDominio() {
-    let dominio =
-      pronoun[Math.floor(Math.random() * pronoun.length)] +
-      adj[Math.floor(Math.random() * adj.length)] +
-      noun[Math.floor(Math.random() * noun.length)] +
-      ".com";
-    return dominio;
+  function generarDominio(pronoun, adj, noun) {
+    let nombresDominios = [];
+  
+    for (let p of pronoun) {
+      for (let a of adj) {
+        for (let n of noun) {
+          let dominio = p + a + n + '.com';
+          nombresDominios.push(dominio);
+        }
+      }
+    }
+    return nombresDominios;
   }
-  document.getElementById("dominio").innerHTML = generarDominio();
-};
+  
+  let dominios = generarDominio(pronoun, adj, noun);
+  dominios.forEach(dominio => console.log(dominio));
+  
+  
