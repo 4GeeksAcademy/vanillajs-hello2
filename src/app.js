@@ -1,31 +1,27 @@
-* eslint-disable *
-import "bootstrap";
-import "./style.css";
-
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = function() {
-  let pronoun = ["the", "our"];
-  let adj = ["great", "big"];
-  let noun = ["jogger", "racoon"];
-  
-  //write your code here
-  function generarDominio(pronoun, adj, noun) {
-    let nombresDominios = [];
-  
-    for (let p of pronoun) {
-      for (let a of adj) {
-        for (let n of noun) {
-          let dominio = p + a + n + '.com';
-          nombresDominios.push(dominio);
-        }
-      }
-    }
-    return nombresDominios;
+  //Definicion de las listas de excusas
+  let who = ["The dog", "My grandma", "The mailman", "My bird"];
+  let action = ["ate", "peed", "crushed", "broke"];
+  let what = ["my homework", "my phone", "the car"];
+  let when = [
+    "before the class",
+    "when I was sleeping",
+    "while I was exercising",
+    "during my lunch",
+    "while I was praying"
+  ];
+
+  function generarExcusa() {
+    let excusa =
+      who[Math.floor(Math.random() * who.length)] +
+      " " +
+      action[Math.floor(Math.random() * action.length)] +
+      " " +
+      what[Math.floor(Math.random() * what.length)] +
+      " " +
+      when[Math.floor(Math.random() * when.length)];
+    return excusa;
   }
-  
-  let dominios = generarDominio(pronoun, adj, noun);
-  dominios.forEach(dominio => console.log(dominio));
-  
-  
+
+  document.getElementById("excuse").innerHTML = generarExcusa();
+};
